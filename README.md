@@ -31,31 +31,26 @@ The main steps in the analyses are as below:
  
  ```
  rides_count = pyber_data_df.groupby(["type"]).count()["ride_id"]
- 
  ```
 2. Total drivers by city type.
 
 ```
 drivers_count = city_data_df.groupby(["type"]).sum()["driver_count"]
-
 ```
 3. Total amount of fares by city type.
 
 ```
 fares_count = pyber_data_df.groupby(["type"]).sum()["fare"]
-
 ```
 4. The average fare per ride by city type.
 
 ```
 average_fare_per_ride = fares_count / rides_count
-
 ```
 5. The average fare per driver by city type. 
 
 ```
 average_fare_per_driver = fares_count / drivers_count
-
 ```
 - With the above metrices, a summary dataframe was created and formatted.
 
@@ -64,8 +59,7 @@ average_fare_per_driver = fares_count / drivers_count
 ```
 sum_of_fares_pivot =sum_of_fares.pivot(index="date",
                                        columns="type",
-                                       values="fare")
-                                     
+                                       values="fare")                                     
 ```
 - Using loc on the dates, a new dataframe was created for dates within '2019-01-01':'2019-04-28'.
 
@@ -73,10 +67,9 @@ sum_of_fares_pivot =sum_of_fares.pivot(index="date",
 
 ```
 weekly_fares = farecounts_Jan_April.resample('W').sum()
-
 ```
 
-![Pivot_Fares]()
+![Pivot_Fares](https://github.com/Nusratnimme/PyBer_Analysis/blob/main/Analysis/Pivot_Fares.png)
 
 ## Results
 
@@ -84,7 +77,7 @@ weekly_fares = farecounts_Jan_April.resample('W').sum()
 
 - According to the PyBer summary dataframe, between January and May in 2019, there were 1,625 rides in urban cities, 625 rides in suburban cities, and 125 rides in rural areas. Also there were 2,405 drivers in urban cities, 490 drivers in suburban cities and 78 drivers in rural areas.
 
-![Pyber_Summary]()
+![Pyber_Summary](https://github.com/Nusratnimme/PyBer_Analysis/blob/main/Analysis/PyBer_Summary_City_Type.png)
 
 - The above table shows that, both the number of total rides and drivers are higher in urban cities than suburban cities and rural area. Especially in urban cities, there was a larger number of drivers compared to rural areas. On the other hand, the average fare per ride are higher in rural areas than suburban and urban cities. The average fare per driver for suburban cities and rural areas are around 2.5 times and 3.5 times higher than urban cities, respectively.
 
@@ -94,7 +87,7 @@ weekly_fares = farecounts_Jan_April.resample('W').sum()
 
 Below multiple-line chart shows total fares by city type:
 
-![PyBer_fare_summary]()
+![PyBer_fare_summary](https://github.com/Nusratnimme/PyBer_Analysis/blob/main/Analysis/Pyber_fare_summary.png)
 
 - At any given time, total weekly fares in urban cities are higher than that of suburban cities, which is in turn higher than rural areas.
 
@@ -106,7 +99,7 @@ Below multiple-line chart shows total fares by city type:
 
 To address the disparities in ridesharing services among different types of cities, following measures may be considered:
 
-1. Discounts may be offred to riders in suburban cities and rural areas to reduce fare per ride. This may, in turn, increase ridership and drive down the fare.
+1. Discounts may be offered to riders in suburban cities and rural areas to reduce fare per ride. This may, in turn, increase ridership and drive down the fare.
 
 2. Drivers in suburban cities and rural areas may be provided incentives through reduced commission. This will reduce the fare per ride and may increase availability of ridesharing services in these areas.
 
